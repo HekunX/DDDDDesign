@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDDDesign.IRepository
+namespace Domain.IRepository
 {
     public interface IStudentRepository:IRepository<Student>
     {

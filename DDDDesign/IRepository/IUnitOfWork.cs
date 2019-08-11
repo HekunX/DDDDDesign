@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDDDesign.IRepository
+namespace Domain.IRepository
 {
     public interface IUnitOfWork
     {
@@ -12,6 +12,8 @@ namespace DDDDesign.IRepository
 
         bool Commit();
         bool RollBack();
+
+        int SaveChanges();
 
     }
 }

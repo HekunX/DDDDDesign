@@ -7,7 +7,7 @@ namespace Domain.Model
     /// <summary>
     /// 班级表
     /// </summary>
-    public partial class Class : IEntity
+    public  class Class : AggregateRoot
     {
         /// <summary>
         /// 班级编号
@@ -22,16 +22,7 @@ namespace Domain.Model
         //一个班级有许多学生
         public virtual List<Student> Students { get; set; }
 
-        public Guid ID { get ; set; }
-    }
-    public partial class Class
-    {
-        public Class(string classID, string ClassName, List<Student> Students)
-        {
-            this.ClassID = ClassID;
-            this.ClassName = ClassName;
-            this.Students = Students;
-        }
+
     }
 
 

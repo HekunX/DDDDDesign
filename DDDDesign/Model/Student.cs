@@ -8,7 +8,7 @@ namespace Domain.Model
     /// <summary>
     /// 学生信息表
     /// </summary>
-    public class Student : AggregateRoot
+    public  class Student : AggregateRoot
     {
         /// <summary>
         /// 学生ID
@@ -60,4 +60,9 @@ namespace Domain.Model
 
 
     }
+
+
+
+
+
 }
