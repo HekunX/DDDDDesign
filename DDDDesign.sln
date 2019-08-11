@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDDesign", "DDDDesign\DDDDesign.csproj", "{AFEBD4A6-5406-4189-861E-CA6E89709EB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFEBD4A6-5406-4189-861E-CA6E89709EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFEBD4A6-5406-4189-861E-CA6E89709EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFEBD4A6-5406-4189-861E-CA6E89709EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFEBD4A6-5406-4189-861E-CA6E89709EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FA254CE-EBBB-4060-B42C-1F3B2792D7A8}
+	EndGlobalSection
+EndGlobal
