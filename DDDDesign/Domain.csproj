@@ -47,7 +47,9 @@
     <Compile Include="BaseModel\IEntity.cs" />
     <Compile Include="BaseModel\IValueObject.cs" />
     <Compile Include="IRepository\IRepository.cs" />
+    <Compile Include="IRepository\IStudentRepository.cs" />
     <Compile Include="IRepository\IUnitOfWork.cs" />
+    <Compile Include="IRepository\ISubjectListRepository.cs" />
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\Classroom.cs" />
     <Compile Include="Model\Course.cs" />
@@ -60,12 +62,6 @@
   <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-      <Project>{5951adec-237c-49c0-951e-38ebc64386ae}</Project>
-      <Name>Infrastructure</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

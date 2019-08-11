@@ -11,13 +11,13 @@ namespace DDDDesign.IRepository
     {
         //增
         int Add(TAggregateRoot aggregateRoot);
-        int Add(List<TAggregateRoot> aggregateRoots);
+        int Add(IQueryable<TAggregateRoot> aggregateRoots);
         //删
         int Delete(TAggregateRoot aggregateRoot);
-        int Delete(List<TAggregateRoot> aggregateRoots);
+        int Delete(IQueryable<TAggregateRoot> aggregateRoots);
         //改
         int Update(TAggregateRoot aggregateRoot);
-        int Update(List<TAggregateRoot> aggregateRoots);
+        int Update(IQueryable<TAggregateRoot> aggregateRoots);
         //查
         TAggregateRoot Find(Guid ID);
 

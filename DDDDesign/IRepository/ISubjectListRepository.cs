@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.BaseModel;
+using Domain.Model;
 
 namespace DDDDesign.IRepository
 {
-    public interface IUnitOfWork
+    public interface ISubjectListRepository:IRepository<SubjectList>
     {
-        bool BeginTransition();
-
-        bool Commit();
-        bool RollBack();
+        //
 
     }
 }

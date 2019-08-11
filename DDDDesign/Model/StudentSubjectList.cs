@@ -9,9 +9,8 @@ namespace Domain.Model
     /// </summary>
     public class StudentSubjectList : IEntity
     {
-
         [Key]
-        public int StudentSubjectList_ID { get; set; }
+        public int StudentSubjectListID { get; set; }
         [Required]
         public string SubjectListID { get; set; }
         [Required]

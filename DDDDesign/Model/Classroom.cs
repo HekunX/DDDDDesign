@@ -31,6 +31,9 @@ namespace Domain.Model
 
         ///一个教室可被很多课程表使用
         public virtual List<SubjectList> SubjectListes { get; set; }
+
+
+
         public Guid ID { get; set; }
     }
 }

@@ -7,7 +7,6 @@ namespace Domain.Model
 {
     public class Course : IEntity
     {
-
         /// <summary>
         /// 课程编号
         /// </summary>
@@ -26,6 +25,8 @@ namespace Domain.Model
         /// 一个课程可以由不同的老师教
         /// </summary>
         public virtual List<SubjectList> SubjectListes { get; set; }
+
+
 
         public Guid ID { get; set; }
 

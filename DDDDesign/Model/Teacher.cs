@@ -22,7 +22,7 @@ namespace Domain.Model
         /// <summary>
         /// 年龄
         /// </summary>
-        public UInt16 Age  { get; set; }
+        public ushort Age { get; set; }
         /// <summary>
         /// 住址
         /// </summary>
@@ -36,6 +36,9 @@ namespace Domain.Model
         /// 一个老师可以教多门课
         /// </summary>
         public virtual List<SubjectList> SubjectLists { get; set; }
+
+
+
         public Guid ID { get; set; }
     }
 }

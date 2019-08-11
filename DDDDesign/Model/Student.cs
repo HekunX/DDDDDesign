@@ -8,9 +8,8 @@ namespace Domain.Model
     /// <summary>
     /// 学生信息表
     /// </summary>
-    public class Student : IEntity
+    public class Student : AggregateRoot
     {
-
         /// <summary>
         /// 学生ID
         /// </summary>
@@ -43,7 +42,7 @@ namespace Domain.Model
         /// <summary>
         /// 所在班级ID
         /// </summary>
-      
+
         public string ClassID { get; set; }
 
         /// <summary>
@@ -57,7 +56,7 @@ namespace Domain.Model
         public virtual List<StudentSubjectList> StudentSubjectLists { get; set; }
 
 
-        public Guid ID { get; set; }
+
 
 
     }
