@@ -1,4 +1,5 @@
 ﻿using Domain.BaseModel;
+using Domain.BaseModule;
 using Domain.IRepository;
 using Infrastructure.DataBaseContext.EFContext;
 using System;
@@ -27,7 +28,8 @@ namespace Infrastructure.Repository.EFRepo
 
         public int Add(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            _EFContext.Set<TAggregateRoot>().AddRange(aggregateRoots);
+              _EFContext.Set<TAggregateRoot>().AddRange(aggregateRoots);
+           
             return aggregateRoots.Count();
         }
 
@@ -66,7 +68,8 @@ namespace Infrastructure.Repository.EFRepo
 
         public int Delete(TAggregateRoot aggregateRoot)
         {
-            _EFContext.Entry(aggregateRoot).State = EntityState.Deleted;
+            //  _EFContext.Entry(aggregateRoot).State = EntityState.Deleted;
+            _EFContext.Set<AggregateRoot>().Remove(aggregateRoot);
             return 1;
         }
 
@@ -85,7 +88,8 @@ namespace Infrastructure.Repository.EFRepo
 
         public int Update(TAggregateRoot aggregateRoot)
         {
-            _EFContext.Set<TAggregateRoot>().Attach(aggregateRoot);
+          //  _EFContext.Set<TAggregateRoot>().Attach(aggregateRoot);
+          
             _EFContext.Entry(aggregateRoot).State = EntityState.Modified;
             return 1;
         }

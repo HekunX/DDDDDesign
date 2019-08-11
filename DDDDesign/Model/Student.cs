@@ -1,4 +1,5 @@
 ﻿using Domain.BaseModel;
+using Domain.BaseModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,18 +11,23 @@ namespace Domain.Model
     /// </summary>
     public  class Student : AggregateRoot
     {
+        [Key]
+        public override Guid ID { get; set; }
+
         /// <summary>
         /// 学生ID
         /// </summary>
-        [Key]
-        public int StudentID { get; set; }
+        [Required]
+        public string StudentID { get; set; }
         /// <summary>
         /// 姓名
         /// </summary>
+        [Required]
         public string StudnetName { get; set; }
         /// <summary>
         /// 年龄
         /// </summary>
+        [Required]
         public uint Age { get; set; }
         /// <summary>
         /// 家庭住址
@@ -43,7 +49,7 @@ namespace Domain.Model
         /// 所在班级ID
         /// </summary>
 
-        public string ClassID { get; set; }
+        public Guid ClassGUID { get; set; }
 
         /// <summary>
         /// 一个学生只在一个班级
@@ -54,9 +60,6 @@ namespace Domain.Model
         /// 一个学生可以选择多们课程
         /// </summary>
         public virtual List<StudentSubjectList> StudentSubjectLists { get; set; }
-
-
-
 
 
     }

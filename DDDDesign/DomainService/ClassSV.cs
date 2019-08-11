@@ -25,15 +25,31 @@ namespace Domain.DomainService
 
         public bool DeleteClass(Guid ID)
         {
-            var @class = _IClassRepository.Find(ID);
-            if (@class != null)
-            {
-                _IClassRepository.Delete(@class);
-                _IClassRepository.SaveChanges();
-                return true;
-            }
-            else return false;
+            //var @class = _IClassRepository.Find(ID);
+            //if (@class != null)
+            //{
+            //    _IClassRepository.Delete(@class);
+            //    _IClassRepository.SaveChanges();
+            //    return true;
+            //}
+            //else return false;
 
+            _IClassRepository.Delete(new Class { ID = ID});
+            _IClassRepository.SaveChanges();
+            return true;
+
+        }
+
+        public bool UpdateClass(Class @class)
+        {
+            _IClassRepository.Update(@class);
+            _IClassRepository.SaveChanges();
+            return true;
+        }
+
+        public Class GetClass(Guid ID )
+        {
+            return _IClassRepository.Find(ID);
         }
 
     }

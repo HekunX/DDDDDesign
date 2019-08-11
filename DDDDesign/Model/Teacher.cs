@@ -10,18 +10,24 @@ namespace Domain.Model
     /// </summary>
     public class Teacher :IEntity
     {
+
+        [Key]
+        public Guid ID { get; set; }
+
         /// <summary>
         /// 教师ID
         /// </summary>
-        [Key]
+        [Required]
         public string TeacherID { get; set; }
         /// <summary>
         /// 教师姓名
         /// </summary>
+        [Required]
         public string TeacherName { get; set; }
         /// <summary>
         /// 年龄
         /// </summary>
+        [Required]
         public ushort Age { get; set; }
         /// <summary>
         /// 住址
@@ -39,6 +45,5 @@ namespace Domain.Model
 
 
 
-        public Guid ID { get; set; }
     }
 }

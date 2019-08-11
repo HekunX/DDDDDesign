@@ -1,4 +1,5 @@
 ﻿using Domain.BaseModel;
+using Domain.BaseModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,26 +12,29 @@ namespace Domain.Model
     public class SubjectList : AggregateRoot
     {
 
+        [Key]
+        public override Guid ID { get; set; }
+
         /// <summary>
         /// 课程编号
         /// </summary>
-        [Key]
+        [Required]
         public string SubjectListID { get; set; }
         /// <summary>
         /// 课程ID
         /// </summary>
         [Required]
-        public string CourseID { get; set; }
+        public Guid CourseGUID { get; set; }
         /// <summary>
         /// 教师ID
         /// </summary>
         [Required]
-        public string TeacherID { get; set; }
+        public Guid TeacherGUIID { get; set; }
         /// <summary>
         /// 教学地址
         /// </summary>
         [Required]
-        public string ClassroomID { get; set; }
+        public Guid ClassroomGUIID { get; set; }
 
 
 
@@ -43,6 +47,7 @@ namespace Domain.Model
         /// 一条课程记录可被多个学生选修
         /// </summary>
         public virtual List<StudentSubjectList> StudentSubjectLists { get; set; }
+
 
     }
 }

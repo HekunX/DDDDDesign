@@ -1,4 +1,5 @@
 ﻿using Domain.BaseModel;
+using Domain.BaseModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository.FluentAPI
 {
-    public class ClassMap:EntityTypeConfiguration<Class>
+    public class StudentMap : EntityTypeConfiguration<Student>
     {
-        public ClassMap()
+        public StudentMap()
         {
-            HasMany(x => x.Students).WithRequired(x => x.Class).HasForeignKey(x => x.ClassGUID).WillCascadeOnDelete();
-            ToTable("Class");
+            HasRequired(x => x.Class).WithMany(x => x.Students).HasForeignKey(x => x.ClassGUID);
+
+            ToTable("Student");
         }
     }
 }

@@ -11,14 +11,18 @@ namespace Domain.Model
     public class Classroom : IEntity
     {
 
+        [Key]
+        public Guid ID { get; set; }
+
         /// <summary>
         /// 教室编号
         /// </summary>
-        [Key]
+        [Required]
         public string ClassroomID { get; set; }
         /// <summary>
         ///教室名，比如多媒体教室、普通教室
         /// </summary>
+        [Required]
         public string ClassroomName { get; set; }
         /// <summary>
         /// 教室内座位数量
@@ -34,6 +38,5 @@ namespace Domain.Model
 
 
 
-        public Guid ID { get; set; }
     }
 }

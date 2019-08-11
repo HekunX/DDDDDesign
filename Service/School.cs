@@ -36,5 +36,13 @@ namespace Service
         {
             _ClassSV.DeleteClass(ID);
         }
+        public void UpdateClass(Class @class)
+        {
+            _ClassSV.UpdateClass(@class);
+        }
+        public Class GetClass(Guid ID)
+        {
+            return _ClassSV.GetClass(ID);
+    }
     }
 }

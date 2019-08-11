@@ -7,18 +7,23 @@ namespace Domain.Model
 {
     public class Course : IEntity
     {
+        [Key]
+        public Guid ID { get; set; }
+
         /// <summary>
         /// 课程编号
         /// </summary>
-        [Key]
+        [Required]
         public string CourseID { get; set; }
         /// <summary>
         /// 课程名
         /// </summary>
+        [Required]
         public string CourseName { get; set; }
         /// <summary>
         /// 课时
         /// </summary>
+        [Required]
         public int CourseTime { get; set; }
 
         /// <summary>
@@ -28,7 +33,6 @@ namespace Domain.Model
 
 
 
-        public Guid ID { get; set; }
 
     }
 }

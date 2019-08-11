@@ -10,11 +10,14 @@ namespace Domain.Model
     public class StudentSubjectList : IEntity
     {
         [Key]
+        public Guid ID { get; set; }
+
+        [Required]
         public int StudentSubjectListID { get; set; }
         [Required]
-        public string SubjectListID { get; set; }
+        public Guid SubjectListGUID { get; set; }
         [Required]
-        public string StudentID { get; set; }
+        public Guid StudentGUID { get; set; }
 
         /// <summary>
         /// 一条选课记录对应一个学生
@@ -26,7 +29,6 @@ namespace Domain.Model
         public virtual SubjectList SubjectList { get; set; }
 
 
-        public Guid ID { get; set; }
 
     }
 }

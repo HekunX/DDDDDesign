@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Domain.BaseModel;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Domain.BaseModel
+namespace Domain.BaseModule
 {
     public abstract class AggregateRoot : IAggregateRoot
     {
-        public Guid ID { get; set; }
+        public abstract Guid ID { get; set; }
     }
 }
