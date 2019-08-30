@@ -66,9 +66,9 @@
       <Project>{5951adec-237c-49c0-951e-38ebc64386ae}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Service\Service.csproj">
+    <ProjectReference Include="..\Service\Application.csproj">
       <Project>{72c1d6a0-22b4-4114-97db-8cc16cf9b27d}</Project>
-      <Name>Service</Name>
+      <Name>Application</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
