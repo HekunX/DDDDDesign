@@ -1,5 +1,6 @@
 ﻿using Domain.IRepository;
 using Domain.Model;
+using Infrastructure.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace Infrastructure.Repository
 {
     public class SubjectRepository:Repository<Subject>, ISubjectRepository
     {
+        public SubjectRepository(EFContext Context) : base(Context)
+        {
 
+        }
     }
 }

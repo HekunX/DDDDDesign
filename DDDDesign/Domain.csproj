@@ -55,6 +55,7 @@
     <Compile Include="IRepository\IStudentRepository.cs" />
     <Compile Include="IRepository\ITeacherRepository.cs" />
     <Compile Include="IRepository\ISubjectRepository.cs" />
+    <Compile Include="IRepository\IUnitOfWork.cs" />
     <Compile Include="Model\ChoseCourse.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\Student.cs" />

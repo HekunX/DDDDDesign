@@ -5,11 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.IRepository;
 using Domain.Model;
+using Infrastructure.Context;
 
 namespace Infrastructure.Repository
 {
     public class StudentRepository: Repository<Student>,IStudentRepository
     {
+        public StudentRepository(EFContext Context):base(Context)
+        {
+            
+        }
 
     }
 }

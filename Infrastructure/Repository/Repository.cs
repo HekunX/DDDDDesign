@@ -12,30 +12,34 @@ namespace Infrastructure.Repository
 {
     public class Repository<TAggregateRoot> : IRepository<TAggregateRoot> where TAggregateRoot : AggregateRoot
     {
-        EFContext EFContext { get; set; }
+        public readonly EFContext Context;
+        public Repository(EFContext Context)
+        {
+            this.Context = Context;
+        }
         public void Add(TAggregateRoot aggregateRoot)
         {
-            EFContext.Set<TAggregateRoot>().Add(aggregateRoot);
+            Context.Set<TAggregateRoot>().Add(aggregateRoot);
         }
 
         public TAggregateRoot Get(Guid ID)
         {
-            return EFContext.Set<TAggregateRoot>().Find(ID);
+            return Context.Set<TAggregateRoot>().Find(ID);
         }
 
         public IEnumerable<TAggregateRoot> GetAll()
         {
-            return EFContext.Set<TAggregateRoot>().ToList();
+            return Context.Set<TAggregateRoot>().ToList();
         }
 
         public void Remove(TAggregateRoot aggregateRoot)
         {
-            EFContext.Set<TAggregateRoot>().Remove(aggregateRoot);
+            Context.Set<TAggregateRoot>().Remove(aggregateRoot);
         }
 
         public void RemoveAll(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            EFContext.Set<TAggregateRoot>().RemoveRange(aggregateRoots);
+            Context.Set<TAggregateRoot>().RemoveRange(aggregateRoots);
         }
 
     }
