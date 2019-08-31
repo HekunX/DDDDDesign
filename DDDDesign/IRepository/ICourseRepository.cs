@@ -9,5 +9,6 @@ namespace Domain.IRepository
 {
     public interface ICourseRepository:IRepository<Course>
     {
+        Course GetCourseByCourseID(string CourseID);
     }
 }

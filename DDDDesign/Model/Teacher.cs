@@ -20,13 +20,25 @@ namespace Domain.Model
     }
     public partial class Teacher
     {
-        public Teacher(string Name,int Age,string PhoneNumber)
+        public static Teacher CreateTeacher(string Name,int Age,string PhoneNumber)
         {
-            this.Name = Name;
-            this.Age = Age;
-            this.PhoneNumber = PhoneNumber;
-
-            this.TeacherID = IDPrefix.TeacherIDPrefix + new Random().Next(1000);
+            return new Teacher
+            {
+                Name = Name,
+                Age = Age,
+                PhoneNumber = PhoneNumber,
+                TeacherID = IDPrefix.TeacherIDPrefix + new Random().Next(1000)
+            };
+        }
+        public static Teacher CreateTeacher(Teacher teacher)
+        {
+            return new Teacher
+            {
+                Name = teacher.Name,
+                Age = teacher.Age,
+                PhoneNumber = teacher.PhoneNumber,
+                TeacherID = IDPrefix.TeacherIDPrefix + new Random().Next(1000)
+            };
         }
     }
 }

@@ -15,5 +15,10 @@ namespace Infrastructure.Repository
         {
 
         }
+
+        public Teacher GetTeacherByTeacherID(string TeacherID)
+        {
+            return Context.Set<Teacher>().Where(x => x.TeacherID == TeacherID).FirstOrDefault();
+        }
     }
 }

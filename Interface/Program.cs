@@ -1,5 +1,6 @@
 ﻿using Service;
 using Domain.Model;
+using System;
 
 namespace Interface
 {
@@ -8,7 +9,8 @@ namespace Interface
         static void Main(string[] args)
         {
             ChoseCourseAppService ChoseCourseAppService = new ChoseCourseAppService();
-            ChoseCourseAppService.AddSubject(new Subject("领域驱动设计","何坤",40));
+            var Result = ChoseCourseAppService.AddSubject(Subject.CreateSubject("100", "领域驱动设计", "100", "何坤", 14));
+            Console.WriteLine(Result.Infomation);
         }
     }
 }

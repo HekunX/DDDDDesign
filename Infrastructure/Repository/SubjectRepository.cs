@@ -15,5 +15,10 @@ namespace Infrastructure.Repository
         {
 
         }
+
+        public Subject GetSubjectBySubjectID(string SubjectID)
+        {
+            return Context.Subject.Where(x => x.SubjectID == SubjectID).FirstOrDefault();
+        }
     }
 }

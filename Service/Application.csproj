@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChoseCourseAppService.cs" />
+    <Compile Include="CourseAppService.cs" />
+    <Compile Include="DTOModel\TeacherDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultEntity.cs" />
+    <Compile Include="TeacherAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DDDDesign\Domain.csproj">
@@ -54,8 +58,6 @@
       <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTOModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

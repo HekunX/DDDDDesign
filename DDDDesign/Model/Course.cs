@@ -18,12 +18,23 @@ namespace Domain.Model
     }
     public partial class Course
     {
-        public Course(string CourseName,int CourseTime)
+        public static Course CreateCourse(string CourseName,int CourseTime)
         {
-            this.CourseName = CourseName;
-            this.CourseTime = CourseTime;
-
-            this.CourseID = IDPrefix.CourseIDPrefix + new Random().Next(1000);
+            return new Course
+            {
+                CourseName = CourseName,
+                CourseTime = CourseTime,
+                CourseID = IDPrefix.CourseIDPrefix + new Random().Next(1000)
+            };
+        }
+        public static Course CreateCourse(Course course)
+        {
+            return new Course
+            {
+                CourseName = course.CourseName,
+                CourseTime = course.CourseTime,
+                CourseID = IDPrefix.CourseIDPrefix + new Random().Next(1000)
+            };
         }
     }
 }

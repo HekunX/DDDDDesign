@@ -9,6 +9,6 @@ namespace Domain.IRepository
 {
     public interface IStudentRepository:IRepository<Student>
     {
-
+        Student GetStudentByStudnetID(string StudentID);
     }
 }

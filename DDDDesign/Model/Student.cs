@@ -19,13 +19,15 @@ namespace Domain.Model
     }
     public partial  class  Student
     {
-        public Student(string Name,int Age,string PhoneNumber)
+        public static Student CreateStudent(string Name,int Age,string PhoneNumber)
         {
-            this.Name = Name;
-            this.Age = Age;
-            this.PhoneNumber = PhoneNumber;
-
-            this.StudentID = IDPrefix.StudentIDPrefix + new Random().Next(1000);
+            return new Student
+            {
+                Name = Name,
+                Age = Age,
+                PhoneNumber = PhoneNumber,
+                StudentID = IDPrefix.StudentIDPrefix + new Random().Next(1000)
+            };
         }
     }
 }

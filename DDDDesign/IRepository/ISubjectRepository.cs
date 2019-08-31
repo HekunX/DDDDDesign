@@ -9,5 +9,6 @@ namespace Domain.IRepository
 {
     public interface ISubjectRepository:IRepository<Subject>
     {
+        Subject GetSubjectBySubjectID(string SubjectID);
     }
 }

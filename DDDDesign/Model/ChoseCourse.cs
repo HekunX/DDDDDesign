@@ -14,11 +14,14 @@ namespace Domain.Model
     }
     public partial class ChoseCourse
     {
-        public ChoseCourse(Guid StudentID, string TeacherName, string CourseName)
+        public static ChoseCourse CreateChoseCourse(Guid StudentID, string TeacherName, string CourseName)
         {
-            this.StudnetID = StudnetID;
-            this.TeacherName = TeacherName;
-            this.CourseName = CourseName;
+            return new ChoseCourse
+            {
+                StudnetID = StudentID,
+                TeacherName = TeacherName,
+                CourseName = CourseName
+            };
         }
     }
 }

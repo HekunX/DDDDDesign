@@ -15,5 +15,10 @@ namespace Infrastructure.Repository
         {
 
         }
+
+        public Course GetCourseByCourseID(string CourseID)
+        {
+            return Context.Set<Course>().Where(x => x.CourseID == CourseID).FirstOrDefault();
+        }
     }
 }

@@ -16,23 +16,28 @@ namespace Domain.Model
         public string CourseName { get; set; }
         public string TeacherName { get; set; }
         public int SubjectTime { get; set; }
+        public string TeacherID { get; set; }
+        public string CourseID { get; set; }
 
         public virtual IEnumerable<ChoseCourse> ChoseCourses { get; set; }
-        public virtual Teacher Teacher { get; set; }
-        public virtual Course Course { get; set; }
-    
     }
 
     public partial class Subject
     {
-        public Subject(string CourseName, string TeacherName,int SubjectTime)
-        {
-            this.CourseName = CourseName;
-            this.TeacherName = TeacherName;
-            this.SubjectTime = SubjectTime;
 
-            this.SubjectID = IDPrefix.SubjectIDPrefix + new Random().Next(1000);
+        public static Subject CreateSubject(string CourseID,string CourseName,string TeacherID, string TeacherName,int SubjectTime)
+        {
+            return new Subject
+            {
+                CourseID = CourseID,
+                TeacherID = TeacherID,
+                CourseName = CourseName,
+                TeacherName = TeacherName,
+                SubjectTime = SubjectTime,
+                SubjectID = IDPrefix.SubjectIDPrefix + new Random().Next(1000)
+            };
         }
+
 
         public IEnumerable<ChoseCourse> GetAllChoseCourses()
         {
@@ -40,7 +45,7 @@ namespace Domain.Model
         }
         public void AddStudent(Guid StudentID)
         {
-            ChoseCourses.ToList().Add(new ChoseCourse(StudentID, TeacherName, CourseName));
+            ChoseCourses.ToList().Add(ChoseCourse.CreateChoseCourse(StudentID, TeacherName, CourseName));
         }
 
     }

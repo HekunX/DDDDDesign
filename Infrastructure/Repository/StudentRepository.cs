@@ -16,5 +16,9 @@ namespace Infrastructure.Repository
             
         }
 
+        public Student GetStudentByStudnetID(string StudentID)
+        {
+            return Context.Set<Student>().Where(x => x.StudentID == StudentID).FirstOrDefault();
+        }
     }
 }
