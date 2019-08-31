@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.IRepository
+namespace Infrastructure.Repository
 {
-    public interface IClassRepository:IRepository<Class>
+    public class CourseRepository:Repository<Course>, ICourseRepository
     {
-
+        
     }
 }

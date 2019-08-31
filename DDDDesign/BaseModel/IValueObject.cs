@@ -2,6 +2,6 @@
 {
     public interface IValueObject
     {
-        
+        int RowID { get; set; }
     }
 }

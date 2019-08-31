@@ -1,5 +1,4 @@
 ﻿using Domain.BaseModel;
-using Domain.BaseModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +7,12 @@ using System.Threading.Tasks;
 
 namespace Domain.IRepository
 {
-    public interface IRepository<TAggregateRoot>:IUnitOfWork where TAggregateRoot:AggregateRoot
+    public interface IRepository<TAggregateRoot> where TAggregateRoot:IAggregateRoot
     {
-        //增
-        int Add(TAggregateRoot aggregateRoot);
-        int Add(IEnumerable<TAggregateRoot> aggregateRoots);
-        //删
-        int Delete(TAggregateRoot aggregateRoot);
-        int Delete(IEnumerable<TAggregateRoot> aggregateRoots);
-        //改
-        int Update(TAggregateRoot aggregateRoot);
-        int Update(IEnumerable<TAggregateRoot> aggregateRoots);
-        //查
-        TAggregateRoot Find(Guid ID);
-
+        IEnumerable<TAggregateRoot> GetAll();
+        void RemoveAll(IEnumerable<TAggregateRoot> aggregateRoots);
+        TAggregateRoot Get(Guid ID);
+        void Add(TAggregateRoot aggregateRoot);
+        void Remove(TAggregateRoot aggregateRoot);
     }
 }
