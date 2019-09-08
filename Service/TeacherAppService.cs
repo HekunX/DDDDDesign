@@ -17,19 +17,32 @@ namespace Service
         {
             this.UnitOfWork = new UnitOfWork();
         }
-        public ResultEntity<DBNull> AddTeacher(TeacherDTO teacher)
+        public void AddTeacher(TeacherDTO teacherDTO)
         {
             try
             {
-                UnitOfWork.TeacherRepository.Add(Teacher.CreateTeacher(teacher.Name,teacher.Age,teacher.PhoneNumber));
+                UnitOfWork.TeacherRepository.Add(Teacher.CreateTeacher(teacherDTO.Name,teacherDTO.Age,teacherDTO.PhoneNumber));
                 UnitOfWork.Commit();
             }
             catch(Exception e)
             {
                 //写入日志
-                return new ResultEntity<DBNull>(null, "发生异常，请稍后再试，若重复出现此错误，请联系客服！", 400);
+                //  return new ResultEntity<DBNull>(null, "发生异常，请稍后再试，若重复出现此错误，请联系客服！", 400);
+                throw e;
             }
-            return new ResultEntity<DBNull>();
+        }
+        public bool ExistTeacher(TeacherDTO teacherDTO)
+        {
+            Teacher teacher = null;
+            try
+            {
+                 teacher = UnitOfWork.TeacherRepository.GetTeacherByTeacherID(teacherDTO.TeacherID);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            return teacher != null;
         }
     }
 }

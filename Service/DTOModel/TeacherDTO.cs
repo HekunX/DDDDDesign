@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace Service.DTOModel
 {
     public class TeacherDTO
     {
+        public string TeacherID { get; set; }
         /// <summary>
         /// 姓名
         /// </summary>

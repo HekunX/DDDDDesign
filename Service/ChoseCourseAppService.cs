@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Service
 {
@@ -25,11 +26,11 @@ namespace Service
 
             if (Teacher == null)
             {
-                return new ResultEntity<DBNull>(null, $"不存在教师{subject.TeacherID}", 400);
+                return new ResultEntity<DBNull>(null, $"不存在教师{subject.TeacherID}",HttpStatusCode.BadRequest );
             }
             if(Course == null)
             {
-                return new ResultEntity<DBNull>(null, $"不存在课程{subject.CourseID}", 400);
+                return new ResultEntity<DBNull>(null, $"不存在课程{subject.CourseID}", HttpStatusCode.BadRequest);
             }
 
             UnitOfWork.SubjectRepository.Add(subject);

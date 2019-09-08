@@ -13,4 +13,11 @@ namespace Domain.EnumType
         public static string CourseIDPrefix = "300";
         public static string SubjectIDPrefix = "400";
     }
+    [Flags]
+    public enum RoleType:int
+    {
+        学生 = 0x1,
+        教师 = 0x1<<1,
+        管理员 = 0x1<<2
+    }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Service
 {
@@ -25,7 +26,7 @@ namespace Service
             catch (Exception e)
             {
                 //写入日志
-                return new ResultEntity<DBNull>(null, "发生异常，请稍后再试，若重复出现此错误，请联系客服！", 400);
+                return new ResultEntity<DBNull>(null, "发生异常，请稍后再试，若重复出现此错误，请联系客服！", HttpStatusCode.InternalServerError);
             }
             return new ResultEntity<DBNull>();
         }

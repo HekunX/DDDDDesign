@@ -10,7 +10,7 @@ namespace Infrastructure.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Infrastructure.Context.EFContext context)
@@ -19,6 +19,7 @@ namespace Infrastructure.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            context.Teacher.Add(Domain.Model.Teacher.CreateTeacher("≤‚ ‘", 22, "15073051470"));
         }
     }
 }

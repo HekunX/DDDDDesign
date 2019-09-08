@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.EnumType;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,6 +20,13 @@ namespace WebApi.ViewModel
         /// </summary>
         [Required,MinLength(1)]
         public string UserPwd { get; set; }
+        /// <summary>
+        /// 用户角色
+        /// </summary>
+        [Required]
+        public RoleType Role { get; set; }
+
+
 
     }
 }
