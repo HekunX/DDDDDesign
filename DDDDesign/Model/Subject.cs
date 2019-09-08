@@ -1,5 +1,5 @@
 ﻿using Domain.BaseModel;
-using Domain.BaseModule;
+using Domain.BaseModel;
 using Domain.EnumType;
 using System;
 using System.Collections.Generic;

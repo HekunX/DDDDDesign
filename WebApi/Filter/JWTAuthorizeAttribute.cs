@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Security.Principal;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using System.Web.Http.Filters;
 using Domain.EnumType;
 using Infrastructure.Authorize;
 namespace WebApi.Filter
@@ -47,32 +49,63 @@ namespace WebApi.Filter
             return (Identity as GenericIdentity).Roles.ToList().Exists(x => x==role);
         }
     }
-    public class TeacherAuthorizeAttribute : AuthorizeAttribute
+    public class TeacherAuthorizeAttribute : AuthorizationFilterAttribute
     {
-
-        protected override bool IsAuthorized(HttpActionContext actionContext)
+        public override void OnAuthorization(HttpActionContext actionContext)
         {
+            if(actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any())
+            {
+                return;
+            }
             var authorization = actionContext.Request.Headers.Authorization;
             string payLoadJson = null;
-            if (authorization == null || authorization.Scheme == null || authorization.Parameter == null || !JWT.Decode(authorization.Parameter,out payLoadJson))
+            if (authorization == null || authorization.Scheme == null || authorization.Parameter == null || !JWT.Decode(authorization.Parameter, out payLoadJson))
             {
-                return false;
+                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpError("Token验证未通过!"));
             }
             else
             {
                 var payLoad = Json.Decode<PayLoad>(payLoadJson);
-                if(payLoad.Role.HasFlag(RoleType.教师))
+                if (payLoad.Role.HasFlag(RoleType.教师))
                 {
                     actionContext.RequestContext.Principal = new GenericPrincipal(payLoad.Name, payLoad.Id, payLoad.Role.ToString());
-                    return true;
                 }
-                return false;
+                else
+                {
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpError("Token验证通过!，但无权限"));
+                }
             }
         }
-        protected override void HandleUnauthorizedRequest(HttpActionContext actionContext)
+
+    }
+
+    public class AdminAuthorizeAttribute : AuthorizationFilterAttribute
+    {
+
+        public override void OnAuthorization(HttpActionContext actionContext)
         {
-            base.HandleUnauthorizedRequest(actionContext);
-            actionContext.Response.Content = new StringContent(Json.Encode("Token验证失败！"), Encoding.UTF8, "application/json");
+            if (actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any())
+            {
+                return;
+            }
+            var authorization = actionContext.Request.Headers.Authorization;
+            string payLoadJson = null;
+            if (authorization == null || authorization.Scheme == null || authorization.Parameter == null || !JWT.Decode(authorization.Parameter, out payLoadJson))
+            {
+                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpError("Token验证未通过!"));
+            }
+            else
+            {
+                var payLoad = Json.Decode<PayLoad>(payLoadJson);
+                if (payLoad.Role.HasFlag(RoleType.管理员))
+                {
+                    actionContext.RequestContext.Principal = new GenericPrincipal(payLoad.Name, payLoad.Id, payLoad.Role.ToString());
+                }
+                else
+                {
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpError("Token验证通过!，但无权限。"));
+                }
+            }
         }
 
 

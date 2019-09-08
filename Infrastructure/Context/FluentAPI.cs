@@ -15,4 +15,10 @@ namespace Infrastructure.Context
             Property(x => x.StudentID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
         }
     }
+    public class AdministratorAPI:EntityTypeConfiguration<Administrator>
+    {
+        public AdministratorAPI()
+        {
+        }
+    }
 }

@@ -16,6 +16,7 @@ namespace Infrastructure.Context
         public DbSet<Subject> Subject { get; set; }
         public DbSet<Course> Course { get; set; }
         public DbSet<ChoseCourse> ChoseCourse { get; set; }
+        public DbSet<Administrator> Administrator { get; set; }
         public EFContext():base("name=EFContext")
         {
             

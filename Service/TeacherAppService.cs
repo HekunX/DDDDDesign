@@ -1,14 +1,14 @@
 ﻿using Domain.IRepository;
 using Domain.Model;
 using Infrastructure.Repository;
-using Service.DTOModel;
+using Application.DTOModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service
+namespace Application
 {
     public class TeacherAppService
     {

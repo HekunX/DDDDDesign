@@ -20,6 +20,7 @@ namespace Infrastructure.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
             context.Teacher.Add(Domain.Model.Teacher.CreateTeacher("≤‚ ‘", 22, "15073051470"));
+            context.Administrator.Add(Domain.Model.Administrator.CreateAdministrator("123456", "∫Œ¿§"));
         }
     }
 }

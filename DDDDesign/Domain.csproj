@@ -56,12 +56,14 @@
     <Compile Include="BaseModel\IEntity.cs" />
     <Compile Include="BaseModel\IValueObject.cs" />
     <Compile Include="EnumType\EnumClass.cs" />
+    <Compile Include="IRepository\IAdministratorRepository.cs" />
     <Compile Include="IRepository\ICourseRepository.cs" />
     <Compile Include="IRepository\IRepository.cs" />
     <Compile Include="IRepository\IStudentRepository.cs" />
     <Compile Include="IRepository\ITeacherRepository.cs" />
     <Compile Include="IRepository\ISubjectRepository.cs" />
     <Compile Include="IRepository\IUnitOfWork.cs" />
+    <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\ChoseCourse.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\Student.cs" />

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Domain.BaseModule
+namespace Domain.BaseModel
 {
     public abstract class AggregateRoot : IAggregateRoot
     {

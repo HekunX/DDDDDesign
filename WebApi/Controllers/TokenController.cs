@@ -11,6 +11,7 @@ using Domain.Model;
 using Infrastructure.Authorize;
 using Infrastructure.Repository;
 using WebApi.ViewModel;
+using WebApi.Filter;
 namespace WebApi.Controllers
 {
     public class TokenController : ApiController
@@ -42,6 +43,14 @@ namespace WebApi.Controllers
                         if ((o = UnitOfWork.TeacherRepository.GetTeacherByTeacherID(user.UserName)) != null)
                         {
                             return Ok(JWT.Encode(user.UserName,(o as Teacher).ID,RoleType.教师.ToString()));
+                        }
+                    }
+                    break;
+                case RoleType.管理员:
+                    {
+                        if ((o = UnitOfWork.AdministratorRepository.GetAdministrtorByAdminID(user.UserName)) != null)
+                        {
+                            return Ok(JWT.Encode(user.UserName, (o as Administrator).ID, RoleType.管理员.ToString()));
                         }
                     }
                     break;

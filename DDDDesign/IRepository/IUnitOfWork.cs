@@ -12,6 +12,7 @@ namespace Domain.IRepository
         IStudentRepository StudentRepository { get; }
         ISubjectRepository SubjectRepository { get; }
         ITeacherRepository TeacherRepository { get;  }
+        IAdministratorRepository AdministratorRepository { get; }
 
         void Commit();
     }

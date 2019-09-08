@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace Service
+namespace Application
 {
     public class ChoseCourseAppService
     {
@@ -18,7 +18,7 @@ namespace Service
             this.UnitOfWork = new UnitOfWork();
         }
 
-        public ResultEntity<DBNull> AddSubject(Subject subject)
+        public ResultEntity AddSubject(Subject subject)
         {
             //首先判断TeacherID和CourseID是否存在
             Teacher Teacher = UnitOfWork.TeacherRepository.GetTeacherByTeacherID(subject.TeacherID);
@@ -26,21 +26,21 @@ namespace Service
 
             if (Teacher == null)
             {
-                return new ResultEntity<DBNull>(null, $"不存在教师{subject.TeacherID}",HttpStatusCode.BadRequest );
+                return new ResultEntity(null, $"不存在教师{subject.TeacherID}",HttpStatusCode.BadRequest );
             }
             if(Course == null)
             {
-                return new ResultEntity<DBNull>(null, $"不存在课程{subject.CourseID}", HttpStatusCode.BadRequest);
+                return new ResultEntity(null, $"不存在课程{subject.CourseID}", HttpStatusCode.BadRequest);
             }
 
             UnitOfWork.SubjectRepository.Add(subject);
             UnitOfWork.Commit();
-            return new ResultEntity<DBNull>(); 
+            return new ResultEntity(); 
         }
-        public ResultEntity<Subject> GetSubjectBySubjectID(string subjectID)
+        public ResultEntity GetSubjectBySubjectID(string subjectID)
         {
             Subject Subject = UnitOfWork.SubjectRepository.GetSubjectBySubjectID(subjectID);
-            return new ResultEntity<Subject>(Subject);
+            return new ResultEntity(Subject);
         }
     }
 }

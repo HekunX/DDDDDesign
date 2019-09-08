@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.BaseModel;
-using Domain.BaseModule;
+using Domain.BaseModel;
 using Domain.IRepository;
 using Infrastructure.Context;
 

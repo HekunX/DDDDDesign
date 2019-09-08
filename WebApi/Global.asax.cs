@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebApi.Filter;
 
 namespace WebApi
 {
@@ -18,6 +19,9 @@ namespace WebApi
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //注册全局过滤器
+            GlobalConfiguration.Configuration.Filters.Add(new ExceptionLogAttribute());
         }
     }
 }

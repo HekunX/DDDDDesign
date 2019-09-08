@@ -15,6 +15,7 @@ namespace Infrastructure.Repository
         private StudentRepository _StudentRepository;
         private SubjectRepository _SubjectRepository;
         private TeacherRepository _TeacherRepository;
+        private AdministratorRepository _AdministratorRepository;
 
 
         public UnitOfWork()
@@ -82,6 +83,22 @@ namespace Infrastructure.Repository
                 else
                 {
                     return _TeacherRepository;
+                }
+            }
+        }
+
+        public IAdministratorRepository AdministratorRepository
+        {
+            get
+            {
+                if (_AdministratorRepository == null)
+                {
+                    _AdministratorRepository = new AdministratorRepository(Context);
+                    return _AdministratorRepository;
+                }
+                else
+                {
+                    return _AdministratorRepository;
                 }
             }
         }

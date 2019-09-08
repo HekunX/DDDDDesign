@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace Service
+namespace Application
 {
     public class CourseAppService
     {
@@ -17,7 +17,7 @@ namespace Service
         {
             this.UnitOfWork = new UnitOfWork();
         }
-        public ResultEntity<DBNull> AddCourse(Course course)
+        public ResultEntity AddCourse(Course course)
         {
             try
             {
@@ -26,9 +26,9 @@ namespace Service
             catch (Exception e)
             {
                 //写入日志
-                return new ResultEntity<DBNull>(null, "发生异常，请稍后再试，若重复出现此错误，请联系客服！", HttpStatusCode.InternalServerError);
+                return new ResultEntity(null, "发生异常，请稍后再试，若重复出现此错误，请联系客服！", HttpStatusCode.InternalServerError);
             }
-            return new ResultEntity<DBNull>();
+            return new ResultEntity();
         }
     }
 }
