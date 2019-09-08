@@ -12,7 +12,7 @@ namespace WebApi.Controllers
 {
     public class TeacherController : ApiController
     {
-        TeacherAppService TeacherAppService = new TeacherAppService();
+        private  TeacherAppService TeacherAppService = new TeacherAppService();
         /// <summary>
         /// 添加教师
         /// </summary>

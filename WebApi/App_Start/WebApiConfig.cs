@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using WebApi.ViewModel;
 
 namespace WebApi
 {
@@ -9,6 +10,7 @@ namespace WebApi
     {
         public static void Register(HttpConfiguration config)
         {
+
             // Web API 配置和服务
 
             // Web API 路由
